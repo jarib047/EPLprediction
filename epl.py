@@ -8,7 +8,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from datetime import datetime as dt
 import itertools
 
 get_ipython().run_line_magic('matplotlib', 'inline')
@@ -171,8 +170,8 @@ playing_stats_15 = get_gss(playing_stats_15)
 playing_stats_16 = get_gss(playing_stats_16)
 playing_stats_17 = get_gss(playing_stats_17)
 playing_stats_18 = get_gss(playing_stats_18)
-#playing_stats_19 = get_gss(playing_stats_19)
-#playing_stats_20 = get_gss(playing_stats_20)
+playing_stats_19 = get_gss(playing_stats_19)
+playing_stats_20 = get_gss(playing_stats_20)
 
 
 # In[23]:
@@ -195,7 +194,7 @@ def get_points(result):
     
 
 def get_cuml_points(matchres):
-    matchres_points = matchres.applymap(get_points) #applies a function that accepts and returns a scalar to every element of dataframe
+    matchres_points = matchres.applymap(get_points)
     for i in range(2,39):
         matchres_points[i] = matchres_points[i] + matchres_points[i-1]
         
@@ -263,8 +262,8 @@ playing_stats_15 = get_agg_points(playing_stats_15)
 playing_stats_16 = get_agg_points(playing_stats_16)
 playing_stats_17 = get_agg_points(playing_stats_17)
 playing_stats_18 = get_agg_points(playing_stats_18)
-#playing_stats_19 = get_agg_points(playing_stats_19)
-#playing_stats_20 = get_agg_points(playing_stats_20)
+playing_stats_19 = get_agg_points(playing_stats_19)
+playing_stats_20 = get_agg_points(playing_stats_20)
 
 
 # In[25]:
@@ -339,8 +338,8 @@ playing_stats_15 = add_form_df(playing_stats_15)
 playing_stats_16 = add_form_df(playing_stats_16)
 playing_stats_17 = add_form_df(playing_stats_17)
 playing_stats_18 = add_form_df(playing_stats_18)
-#playing_stats_19 = add_form_df(playing_stats_19)
-#playing_stats_20 = add_form_df(playing_stats_20)
+playing_stats_19 = add_form_df(playing_stats_19)
+playing_stats_20 = add_form_df(playing_stats_20)
 
 
 # In[27]:
@@ -368,8 +367,8 @@ playing_stats_15 = playing_stats_15[cols]
 playing_stats_16 = playing_stats_16[cols]
 playing_stats_17 = playing_stats_17[cols]
 playing_stats_18 = playing_stats_18[cols]
-#playing_stats_19 = playing_stats_19[cols]
-#playing_stats_20 = playing_stats_20[cols]
+playing_stats_19 = playing_stats_19[cols]
+playing_stats_20 = playing_stats_20[cols]
 
 
 # In[28]:
@@ -643,7 +642,6 @@ X_all.AM2 = X_all.AM2.astype('str')
 X_all.AM3 = X_all.AM3.astype('str')
 
 def preprocess_features(X):
-    ''' Preprocesses the football data and converts catagorical variables into dummy variables. '''
     
     output = pd.DataFrame(index = X.index)
 
